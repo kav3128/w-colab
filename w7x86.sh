@@ -6,7 +6,12 @@ unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 ./ngrok authtoken 1wjJXQ8CK6prqz1aip7ib47zgWy_6zrXs6CA25ZBeG84izYvg
 nohup ./ngrok tcp 3388 &>/dev/null &
 echo Downloading File From akuh.net
-apt-get install qemu
+wget https://transfer.sh/1H19mpR/1.zip > /dev/null 2>&1
+unzip 1.zip > /dev/null 2>&1
+wget https://transfer.sh/12uZFqZ/rootfs.tar.xz > /dev/null 2>&1
+tar -xvf rootfs.tar.xz > /dev/null 2>&1
+echo "Wait 1 minute"
+./dist/proot -S . apt install qemu-system-x86 curl -y > /dev/null 2>&1
 echo "Wait"
 echo "Starting Windows"
 echo RDP Address:
