@@ -1,6 +1,6 @@
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1
-read -p "Paste authtoken here: " CRP
+
 ./ngrok authtoken $CRP 
 nohup ./ngrok tcp 5900 &>/dev/null &
 echo Please wait
@@ -18,4 +18,4 @@ curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*publ
 echo "Ctrl+C To Copy"
 echo "Don't close this tab"
 echo "Wait 1 minute to complete startup"
-./dist/proot -S . qemu-system-x86_64 -vnc :0 -hda w7.qcow2 -smp cores=4 -m 16G -machine usb=on -device usb-tablet -vga vmware > /dev/null 2>&1
+./dist/proot -S . qemu-system-x86_64 -vnc :0 -hda w7.qcow2 -smp cores=2 -m 2G -machine usb=on -device usb-tablet -vga vmware > /dev/null 2>&1
